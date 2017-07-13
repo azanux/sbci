@@ -1,1 +1,1 @@
-# sbci
+# SwissBorg Cyborg Index (SBCI Token)
