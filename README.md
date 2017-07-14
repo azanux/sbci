@@ -31,9 +31,9 @@ ABI : [Rinbeky](doc/Rinbeky-ABI.txt)
 
 ## SwissBorg smart contract Workflow
 
-[![Workflow](doc/image/swissborgWwrkflow.png)
+![Workflow](doc/image/swissborgWwrkflow.png)
 
-1. Bob want to buy SBCI token , he send Ether to SBCI smart contract 
+1. *Bob want to buy SBCI token , he send Ether to SBCI smart contract 
 2. SwissBorg check Bob KYC, update the token price and create SBCI token for Bob
 3. Bob receive his SBCI token
 4. Bob want to sell SBCI token to Alice (all ERC20 functions are implemented , so Bob use transfer, allowance, approve ....) , Bob transfert SBCI token to Alice
