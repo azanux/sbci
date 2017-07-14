@@ -19,19 +19,19 @@ You can interact with SBCI smart contract using :
 4. Mist
 5. IMTOKEN
 
-DO NOT USE AN EXCHANGE WALLET
+**DO NOT USE AN EXCHANGE WALLET**
 
 #### The Rinbeky demo of the SBCI smart contract can be access : [https://rinkeby.etherscan.io/token-search](https://rinkeby.etherscan.io/token-search)
 smart contract address :  0xe72cbdff0ed70899c6e33ccf921b8506dcedc965
 ABI : [Rinbeky](doc/Rinbeky-ABI.txt)
 
 #### The production ready SBCI smart contract can be access : (soon)
-smart contract address :  (soon)
-ABI : (soon)
+*smart contract address :  (soon)
+*ABI : (soon)
 
 ## SwissBorg smart contract Workflow
 
-[![Logo](doc/image/swissborgWwrkflow.png)]
+[![Workflow](doc/image/swissborgWwrkflow.png)
 
 1. Bob want to buy SBCI token , he send Ether to SBCI smart contract 
 2. SwissBorg check Bob KYC, update the token price and create SBCI token for Bob
@@ -59,23 +59,8 @@ ABI : (soon)
 14. transferFrom : transfer SBCI amount from an address to another address ( Alice transfer SBCI from Bob account to Kevin account)
 15. withdrawRequest : Kevin ask to withdraw an mount of his SBCI
 16. validateWithdraw : validate withdraw of an adress (SwissBorg admin validate Kevin withdraw and send corresponding Ether to kevin address) - only SwissBorg admin
-17. a
-2. approve : 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+17. depositFund : sent Ether to the contract , user can also sent the ether directly to the contract without using this function
+18. allocateFund : sent Ether to the contract without creating SBCI token - only SwissBorg admin
+19. withdrawFund : withdraw Ether from the contract - only SwissBorg admin
+20. transferOwnership : transfer Contract administration to another address - only SwissBorg admin
 
