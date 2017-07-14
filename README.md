@@ -22,12 +22,12 @@ You can interact with SBCI smart contract using :
 **DO NOT USE AN EXCHANGE WALLET**
 
 #### The Rinbeky demo of the SBCI smart contract can be access : [https://rinkeby.etherscan.io/token-search](https://rinkeby.etherscan.io/token-search)
-smart contract address :  0xe72cbdff0ed70899c6e33ccf921b8506dcedc965
-ABI : [Rinbeky](doc/Rinbeky-ABI.txt)
+* **smart contract address :**  0xe72cbdff0ed70899c6e33ccf921b8506dcedc965
+* **ABI :** [Rinbeky](doc/Rinbeky-ABI.txt)
 
-#### The production ready SBCI smart contract can be access : (soon)
-* smart contract address :  (soon)
-* ABI : (soon)
+#### The production ready SBCI smart contract can be access : *(soon)*
+* **smart contract address :**  *(soon)*
+* **ABI :** *(soon)*
 
 ## SwissBorg smart contract Workflow
 
@@ -64,3 +64,83 @@ ABI : [Rinbeky](doc/Rinbeky-ABI.txt)
 19. **ithdrawFund :** withdraw Ether from the contract - only SwissBorg admin
 20. **transferOwnership :** transfer Contract administration to another address - only SwissBorg admin
 
+## Development
+
+#### Install [testrpc] (https://github.com/ethereumjs/testrpc)
+```
+$ npm install -g ethereumjs-testrpc
+```
+#### Install [truffle] (http://truffleframework.com/):
+```
+$ npm install -g truffle 
+```
+#### Clone the SwissBorg smart contract project
+```
+$ git clone  https://github.com/SwissBorg/sbci.git 
+```
+#### Run testrpc
+The command below run tesrpc and initiliaze 4 accounts with some Ether and unlock these accounts.
+
+**REMEMBER TO CHANGE PRIVATE KEYS WITH YOURS**
+
+```
+$  testrpc --account="0x86f4axxxxxxxxxxxPRIVATEKEYxxxxxxxxxxxxxxxxxxxxxf16920325d4c2b78df39,50000000000000000000" --account="0x44024aa38fbbd25xxxxxxxxxxxxPRIVATEKEYxxxxxxxxxxxxxxxxxxxxx13ebaadcbcd64,100000000000000000000"  --account="0xc84ced8ebbb0eefxxxxxxxxxxxxPRIVATEKEYxxxxxxxxxxxxxxxxxxxxx033157d5c6ecad,0" --account="0x39205bb99f283872dd4459420d3fac68a13dc027751d5117c857a5e5da5184ca,1000000000000000000000" –-secure –u 0 –u 1 –u 2 –u 3
+```
+Stop testrpc with : CTRL + C
+
+#### Compile the smart contrcats
+* **Move to the directory project sbci**
+```
+$ cd sbci
+```
+* **Compile the project**
+**REMEMBER TO CHANGE THE ADMIN ADDRESS ON Owner.sol**
+```
+$ truffle compile
+```
+
+* **Run unit test** 
+```
+$ truffle test
+```
+
+* **Deploy to development blockchain node (testrpc)**
+```
+$ truffle migrate
+```
+
+* **Interact with your contract on development blockchain (testrpc) with truffle console**
+```
+$ truffle console
+```
+Check the balance of account 0
+```
+> web3.eth.getBalance(web3.eth.accounts[0]).toNumber()
+```
+Send Ether from account 0 to the smart contract
+```
+> SwissborgIndex.deployed().then(inst => inst.sendTransaction({ from:web3.eth.accounts[0], value: web3.toWei(1, "ether")})).then(tx => console.log(tx))
+```
+Change the token price  **USE YOUR ADMIN ACCOUNT** 
+```
+> SwissborgIndex.deployed().then( inst => inst.setPrice(150, {from: web3.eth.accounts[3]}))
+```
+Get the new token price
+```
+> SwissborgIndex.deployed().then( inst => inst.getPrice()).then(result => swissborgindex = result.toString(10))
+```
+
+* **Deploy to Rinbeky or production blockchain node**
+** UPDATE THE FILE truffle.js WITH YOUR NODE IP ADDRESS **
+```
+$ truffle migrate --network live
+```
+
+## Security and Liability
+All contracts are WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+## License
+All smart contracts are released under Apache License Version 2.0
+
+## Contributors
+* Charles Azanlekor ([azanux](https://github.com/azanux))

@@ -20,6 +20,12 @@ module.exports = {
       port: 8545,
       network_id: 4,
       from:'0xe98b66de7c650e009f4362dcfb5ab5b20140b2bb'
+    },
+    live: {
+      host: "10.0.0.14",
+      port: 8545,
+      network_id: 1,
+      from:'0xe98b66de7c650e009f4362dcfb5ab5b20140b2bb'
     }
   }
 }
