@@ -8,12 +8,12 @@ version : 0.2
 ## Introduction
 
 This package contains Ethereum Solidity smart contracts to manage SwissBorg cyborg Index token.
-It can be use to create, transfer, withdraw SBCI token, this token implements the core [ERC20](https://github.com/ethereum/EIPs/issues/20) standard functionality.
+It can be use to create, transfer, redeem SBCI token, this token implements the core [ERC20](https://github.com/ethereum/EIPs/issues/20) standard functionality.
 
 ## Interacting with SBCI smart contract
 
 You can interact with SBCI smart contract using :
-1. MyEtherWallet (Choose Node Rinkeby)
+1. MyEtherWallet
 2. Parity
 3. Metamask
 4. Mist
@@ -33,14 +33,14 @@ You can interact with SBCI smart contract using :
 
 ![Workflow](doc/image/swissborgWwrkflow.png)
 
-1. Bob want to buy SBCI token , he send Ether to SBCI smart contract 
-2. SwissBorg admin check Bob KYC, update the token price and create SBCI token for Bob
-3. Bob receive his SBCI token
-4. Bob want to sell SBCI token to Alice (all ERC20 functions are implemented , so Bob can use transfer, allowance, approve ....) , Bob transfer SBCI token to Alice
-5. Alice receive her SBCI token
-6. Alice sell her token and get her dividend from Swissborg by asking for withdraw
-7. Swissborg admin check Alice KYC, update the token price and validate the withdraw
-8. Alice receive her Ether
+1. Bob wants to buy SBCI token , he sends Ether to SBCI smart contract 
+2. SwissBorg admin checks Bob KYC, updates the token price and creates SBCI token for Bob
+3. Bob receives his SBCI token
+4. Bob wants to sell SBCI token to Alice (all ERC20 functions are implemented , so Bob can use transfer, allowance, approve ....) , Bob transfers SBCI token to Alice
+5. Alice receives her SBCI token
+6. Alice sells her token and gets her dividend from Swissborg by asking for withdraw
+7. Swissborg admin checks Alice KYC, updates the token price and validates the withdraw
+8. Alice receives her Ether
 
 ## SBCI smart contract functions
 1.  **name :** name of the smart contract
@@ -49,17 +49,17 @@ You can interact with SBCI smart contract using :
 4.  **owner :** SwissBorg admin address
 5.  **symbol :** token symbol
 6.  **tokenCap :** maximum SBCI token allowed
-7.  **balanceOf :** get SBCI balance of an address (Bob ckeck his SBCI balance)
-8.  **getPrice :** get corresponding price of Ether to SBCI
+7.  **balanceOf :** get SBCI balance of an address (Bob ckecks his SBCI balance)
+8.  **getPrice :** get the last quotation of SBCI in Ether (last admin quotation update, not real time price)
 9.  **setPrice :** update the token price - *only SwissBorg admin*
-10. **createToken :** create token for an address - *only SwissBorg admin*
-11. **transfer :** transfer SBCI token to another address (Bob transfer 10 SBCI to Alice)
-12. **approve :** allow an address to spend amount of SBCI on behalf of another address (Bob allow Alice to transfer his SBCI to Kevin)
-13. **allowance :** check amount of SBCI an address is allowed to spend on his behalf of another address (Alice check SBCI amount she can spend on behalf of Bob)
-14. **transferFrom :** transfer SBCI amount from an address to another address ( Alice transfer SBCI from Bob account to Kevin account)
-15. **withdrawRequest :** Kevin ask to withdraw an amount of his SBCI
-16. **validateWithdraw :** validate SBCI withdraw from an address (SwissBorg admin validate Kevin withdraw and send corresponding Ether to kevin address) - *only SwissBorg admin*
-17. **depositFund :** send Ether to the contract , user can also sent the ether directly to the contract without using this function
+10. **createToken :** update token ledger by allocating new tokens to a specific address - *only SwissBorg admin*
+11. **transfer :** update token ledger by transferring existing tokens from an address to another (Bob transfers 10 SBCI to Alice)
+12. **approve :** give to an address the right to spend a predefined amount of SBCI tokens on behalf of another address (Bob allows Alice to transfer his SBCI to Kevin)
+13. **allowance :** give the amount of predefined SBCI Tokens one address is allowed to spend on behalf of another adress (Alice checks SBCI amount she can spend on behalf of Bob)
+14. **transferFrom :** transfer SBCI amount from an address to another address ( Alice transfers SBCI from Bob account to Kevin account)
+15. **withdrawRequest :** request to exchange SBCI Tokens against ETH at the rate of the next price update (Kevin asks to withdraw an amount of his SBCI)
+16. **validateWithdraw :** validate SBCI withdraw from an address (SwissBorg admin validates Kevin withdraw and send corresponding Ether to kevin address) - *only SwissBorg admin*
+17. **depositFund :** send Ether to the contract , user can also send the ether directly to the contract without using this function
 18. **allocateFund :** send Ether to the contract without creating SBCI token - *only SwissBorg admin*
 19. **withdrawFund :** withdraw Ether from the contract - *only SwissBorg admin*
 20. **transferOwnership :** transfer Contract administration to another address - *only SwissBorg admin*
