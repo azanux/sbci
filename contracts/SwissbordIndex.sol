@@ -21,7 +21,7 @@ contract SwissborgIndex is StandardToken , Owner  {
 
   //Amount of decimal for display purposes
   // @TODO Remember to change this value
-  uint internal constant decimals = 18;
+  uint public constant decimals = 18;
 
   //Version of the Token
   string public constant version = "1.0";

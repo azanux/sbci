@@ -150,3 +150,7 @@ All smart contracts are released under MIT License
 
 ## Contributors
 * Charles Azanlekor ([azanux](https://github.com/azanux))
+* Anthony Lesoismier ([TonyBorg](https://github.com/TonyBorg))
+
+## Contact
+* cyborg@swissborg.com
